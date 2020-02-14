@@ -1,7 +1,9 @@
 # RLE encoder and decoder
 
-string = 'AAAAAAAABBBBBBBBBBCCCCCCCCC'
-compressed_string = '8A10B9C'
+encoding = open('encoding.txt', 'r+')
+encode_string = encoding.read()
+
+decoding = open('decoding.txt', 'r+')
 
 
 def RLEC(inputstream):
@@ -24,7 +26,11 @@ def RLEC(inputstream):
             repeated_char = e
             repeated_length += 1
             compressed_data.pop(-1)
-            compressed_data.append(str(repeated_length)+repeated_char)
+            if e.isnumeric() == True:
+                compressed_data.append(
+                    str(repeated_length) + "*" + repeated_char)
+            else:
+                compressed_data.append(str(repeated_length) + repeated_char)
 
         elif e != iter_char:
             compressed_data.append(e)
@@ -34,27 +40,44 @@ def RLEC(inputstream):
 
     for e in compressed_data:
         output_string += e
-
-    return inputstream, output_string
-
-
-# print(RLEC(string))
-
-
-def RLED(inputstream):
-
-    multiply = 0
-    output_string = ''
-
-    for e in inputstream:
-        if e.isalpha() == False:
-            multiply = int(e)
-            print(multiply)
-        elif e.isalpha() == True:
-            output_string += multiply * e
-            multiply = 0
+        output_string += ','
+    output_string = output_string[:-1]
 
     return output_string
 
 
-print(RLED(compressed_string))
+# decoding.write(RLEC(encode_string))
+
+
+def RLED(inputstream):
+
+    multiply = ''
+    output_string = ''
+    stop = False
+
+    for e in inputstream:
+        if e.isnumeric() == True and stop != True:
+            multiply += e
+
+        elif e == '*':
+            stop = True
+
+        elif e.isalpha() == True:
+            output_string += int(multiply) * e
+            multiply = ''
+
+        elif e == ',':
+            multiply = ''
+
+        elif stop == True:
+            print(multiply)
+            output_string += int(multiply) * e
+            multiply = ''
+            stop = False
+
+    return output_string
+
+
+# decoding = decoding.read()
+string = '4a,4b,4*1,10*2,a,8*3,b,a,3b,2a'
+print(RLED(string))

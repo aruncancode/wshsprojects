@@ -28,25 +28,25 @@ def RLEC(inputstream):
             compressed_data.pop(-1)
             if e.isnumeric() == True:
                 compressed_data.append(
-                    str(repeated_length) + "*" + repeated_char)
+                    str(repeated_length) + "*" + repeated_char+',')
             else:
                 compressed_data.append(str(repeated_length) + repeated_char)
 
         elif e != iter_char:
-            compressed_data.append(e)
+            if e.isnumeric() == True:
+                compressed_data.append(e + ',')
+            else:
+                compressed_data.append(e)
             repeated_length = 1
             repeated_char = ''
             iter_char = e
 
     for e in compressed_data:
         output_string += e
-        output_string += ','
-    output_string = output_string[:-1]
+        if e == ',':
+            pass
 
-    return output_string
-
-
-# decoding.write(RLEC(encode_string))
+    return compressed_data
 
 
 def RLED(inputstream):
@@ -63,14 +63,16 @@ def RLED(inputstream):
             stop = True
 
         elif e.isalpha() == True:
-            output_string += int(multiply) * e
+            if multiply != '':
+                output_string += int(multiply) * e
+            else:
+                output_string += e
             multiply = ''
 
         elif e == ',':
             multiply = ''
 
         elif stop == True:
-            print(multiply)
             output_string += int(multiply) * e
             multiply = ''
             stop = False
@@ -78,6 +80,9 @@ def RLED(inputstream):
     return output_string
 
 
+# decoding.write(RLEC(encode_string))
+
 # decoding = decoding.read()
-string = '4a,4b,4*1,10*2,a,8*3,b,a,3b,2a'
-print(RLED(string))
+# print(RLED(decoding))
+
+print(RLEC(encode_string))

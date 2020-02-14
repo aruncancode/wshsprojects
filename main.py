@@ -46,7 +46,7 @@ def RLEC(inputstream):
         if e == ',':
             pass
 
-    return compressed_data
+    return output_string
 
 
 def RLED(inputstream):
@@ -85,4 +85,4 @@ def RLED(inputstream):
 # decoding = decoding.read()
 # print(RLED(decoding))
 
-print(RLEC(encode_string))
+# print(RLEC(encode_string))

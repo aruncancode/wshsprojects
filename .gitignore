@@ -2,3 +2,5 @@
 settings.json
 .DS_store
 testing.py
+testing2.py
+__pycache__

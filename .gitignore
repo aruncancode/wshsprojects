@@ -1,8 +1,4 @@
 .vscode/
-settings.json
 .DS_store
-testing.py
-testing2.py
-__pycache__
-test.py
+__pycache__/
 testing_strings.txt

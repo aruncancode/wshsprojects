@@ -82,6 +82,11 @@ class RLE():
             elif e == '*':
                 stop = True
 
+            elif e == ' ':
+                compressed_data.append(e)
+                multiply = ''
+                possible_numbers = ''
+
             run += 1
 
         for e in compressed_data:
@@ -90,3 +95,10 @@ class RLE():
             # print(compressed_data)
 
         return output_string
+
+    def RLE_ASCII(self, inputstream):
+        byte_array = str(inputstream).encode()
+        binary_int = int.from_bytes(byte_array, "big")
+        inputstream = bin(binary_int)
+
+        print(RLE.RLEC(1, inputstream))

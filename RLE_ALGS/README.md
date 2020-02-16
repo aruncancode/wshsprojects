@@ -1,4 +1,4 @@
-#Run Length Encoding Algs
+# Computer Science Projects
 
 RLEC is used to compress any binary or alphanumeric string
 

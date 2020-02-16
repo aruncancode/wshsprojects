@@ -22,12 +22,13 @@ class RLE():
                 repeated_char = e
                 repeated_length += 1
                 compressed_data.pop(-1)
+                if len(compressed_data) != 0:
+                    if compressed_data[-1].isnumeric() == True:
+                        compressed_data.append(',')
                 compressed_data.append(
                     str(repeated_length) + '*' + str(repeated_char))
 
             elif e != iter_char:
-                # if compressed_data[-1].isalpha() == True:
-                #     compressed_data.pop(-1)
                 compressed_data.append(e)
                 repeated_length = 1
                 repeated_char = ''

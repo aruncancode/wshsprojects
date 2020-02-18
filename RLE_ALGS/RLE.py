@@ -38,6 +38,7 @@ class RLE():
             # print(compressed_data)
 
         for e in compressed_data:
+            output_string += e
 
         return output_string
 

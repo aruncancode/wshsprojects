@@ -41,6 +41,10 @@ class RLE():
             output_string += e
             # output_string += ' '
 
+        byte_array = str(output_string).encode()
+        binary_int = int.from_bytes(byte_array, "big")
+        output_string = bin(binary_int)
+
         return output_string
 
     def RLED(self, inputstream):
@@ -100,6 +104,5 @@ class RLE():
         byte_array = str(inputstream).encode()
         binary_int = int.from_bytes(byte_array, "big")
         inputstream1 = bin(binary_int)
-        str(inputstream1).replace('b', "")
-        print(inputstream1)
+        inputstream1.replace('b', '')
         return RLE.RLEC(1, inputstream1)

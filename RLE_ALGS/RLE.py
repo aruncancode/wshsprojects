@@ -23,7 +23,7 @@ class RLE():
                 repeated_length += 1
                 compressed_data.pop(-1)
                 if len(compressed_data) != 0:
-                    if compressed_data[-1].isnumeric() == True and run != len(inputstream)-1:
+                    if compressed_data[-1].isnumeric() == True:
                         compressed_data.append(',')
                 compressed_data.append(
                     str(repeated_length) + '*' + str(repeated_char))
@@ -38,12 +38,6 @@ class RLE():
             # print(compressed_data)
 
         for e in compressed_data:
-            output_string += e
-            # output_string += ' '
-
-        byte_array = str(output_string).encode()
-        binary_int = int.from_bytes(byte_array, "big")
-        output_string = bin(binary_int)
 
         return output_string
 

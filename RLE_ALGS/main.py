@@ -1,16 +1,17 @@
 from RLE import *
 
 
-encoding = open('encoding.txt', 'r+')
-encode_string = encoding.read()
-decoding = open('decoding.txt', 'r+')
-decode_string = decoding.read()
+encoding = open('input.txt', 'r')
+uncompressed_string = encoding.read()
 
 
-# decoding.write(RLE.RLEC(1, encode_string))
+output = RLE.RLED(1, uncompressed_string)
 
 
-# print(RLE.RLEC(1, encode_string))
-print(RLE.RLED(1, decode_string))
+print("INPUT:  %s  LENGTH: %s" %
+      (uncompressed_string, str(len(uncompressed_string))))
 
-# RLE.RLE_ASCII(1, encode_string)
+print("OUPUT: %s LENGTH: %s" %
+      (output, str(len(output))))
+
+print('EFFICIENY: ' + str(1 - len(output)/len(uncompressed_string) * 100))

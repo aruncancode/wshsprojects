@@ -1,7 +1,7 @@
 # RLE encoder and decoder
 class RLE():
 
-    def RLEC(self, inputstream):
+    def RLEC(self,  inputstream):
 
         iter_char = ''
         repeated_length = 0
@@ -23,7 +23,7 @@ class RLE():
                 repeated_length += 1
                 compressed_data.pop(-1)
                 if len(compressed_data) != 0:
-                    if compressed_data[-1].isnumeric() == True:
+                    if compressed_data[-1].isnumeric() == True and run != len(inputstream)-1:
                         compressed_data.append(',')
                 compressed_data.append(
                     str(repeated_length) + '*' + str(repeated_char))
@@ -99,6 +99,7 @@ class RLE():
     def RLE_ASCII(self, inputstream):
         byte_array = str(inputstream).encode()
         binary_int = int.from_bytes(byte_array, "big")
-        inputstream = bin(binary_int)
-
-        print(RLE.RLEC(1, inputstream))
+        inputstream1 = bin(binary_int)
+        str(inputstream1).replace('b', "")
+        print(inputstream1)
+        return RLE.RLEC(1, inputstream1)

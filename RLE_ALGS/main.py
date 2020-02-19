@@ -5,8 +5,10 @@ encoding = open('input.txt', 'r+')
 input_string = encoding.read()
 
 
-output = RLE.RLEC(1, input_string)
+# output = RLE.RLE_ALPHANUMERIC(1, input_string)
 
+# output = Conversions.bin_ascii(1, RLE.RLED(
+#     1, input_string))
 
 print("INPUT: %s \nLENGTH: %s" %
       (input_string, str(len(input_string))))

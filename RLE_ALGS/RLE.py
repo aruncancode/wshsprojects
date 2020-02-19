@@ -44,3 +44,12 @@ class RLE():
                 string = ''
 
         return output_string
+
+    def RLE_ALPHANUMERIC(self, alphanumericstream):
+        binary_stream = ''
+        for e in alphanumericstream:
+            binary_stream += Conversions.ascii_bin(1, e)
+
+        # print(binary_stream)
+
+        return RLE.RLEC(1, binary_stream)

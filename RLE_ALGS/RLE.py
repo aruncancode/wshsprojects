@@ -3,102 +3,44 @@ from conversion import *
 
 class RLE():
 
-    def RLEC(self,  inputstream):
-
-        iter_char = ''
-        repeated_length = 0
-        repeated_char = ''
-        output_string = ''
-        first_run = True
-        run = 0
+    def RLEC(self, inputstream):
+        last_char = ''
         compressed_data = []
+        repeated_length = 0
+        binary_string = ''
 
         for e in inputstream:
-            if first_run == True:
-                iter_char = e
-                repeated_length = 1
-                compressed_data.append(e)
-                first_run = False
-
-            elif e == iter_char:
-                repeated_char = e
+            if e == last_char:
                 repeated_length += 1
                 compressed_data.pop(-1)
-                if len(compressed_data) != 0:
-                    if compressed_data[-1].isnumeric() == True:
-                        compressed_data.append(',')
-                compressed_data.append(
-                    str(repeated_length) + '*' + str(repeated_char))
-
-            elif e != iter_char:
-                compressed_data.append(e)
+                compressed_data.append(str(repeated_length) + '*' + e)
+            elif e != last_char:
                 repeated_length = 1
-                repeated_char = ''
-                iter_char = e
-
-            run += 1
-            # print(compressed_data)
+                compressed_data.append(str(repeated_length) + '*' + e)
+            last_char = e
 
         for e in compressed_data:
-            output_string += e
-        print(output_string)
+            compressed_string = e.split('*')
+            repeats = compressed_string[0]
+            bit = compressed_string[1]
+            binary_string += (Conversions.dec_bin(1,
+                                                  int(repeats)) + bit)
 
-        return Conversions.ascii_bin(1, output_string)
+        return binary_string
 
     def RLED(self, inputstream):
-        inputstream = Conversions.bin_ascii(1, inputstream)
-        multiply = ''
+        string = ''
+        repeated_length = ''
+        repeated_char = ''
         output_string = ''
-        stop = False
-        compressed_data = []
-        possible_numbers = ''
-        iter_list = iter(inputstream)
-        run = 0
 
-        for e in iter_list:
+        for e in inputstream:
+            string += e
+            if len(string) == 9:
+                repeated_length = Conversions.bin_dec(1, string[:8])
+                repeated_char = string[-1]
+                output_string += (int(repeated_length)*repeated_char)
+                repeated_length = ''
+                string = ''
 
-            if e.isnumeric() == True and stop == False:
-                if run != 0:
-                    if compressed_data[-1] == possible_numbers:
-                        compressed_data.pop(-1)
-                possible_numbers += e
-                multiply += e
-                compressed_data.append(possible_numbers)
-
-            elif e.isalpha() == True and stop == False:
-                compressed_data.append(e)
-                possible_numbers = ''
-                multiply = ''
-
-            elif stop == True:
-                compressed_data.pop(-1)
-                compressed_data.append(int(multiply) * e)
-                possible_numbers = ''
-                multiply = ''
-                stop = False
-
-            elif e == ',':
-                multiply = ''
-                possible_numbers = ''
-
-            elif e == '*':
-                stop = True
-
-            elif e == ' ':
-                compressed_data.append(e)
-                multiply = ''
-                possible_numbers = ''
-
-            run += 1
-
-        for e in compressed_data:
-            output_string += e
-
-        # print(output_string)
-        # print(compressed_data)
-
-        return Conversions.bin_ascii(1, output_string)
-
-    def RLE_ASCII(self, inputstream):
-        inputstream1 = Conversions.ascii_bin(1, inputstream)
-        return RLE.RLEC(1, inputstream1)
+        return output_string

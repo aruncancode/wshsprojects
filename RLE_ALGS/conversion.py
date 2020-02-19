@@ -17,3 +17,14 @@ class Conversions():
                 string = ''
 
         return ''.join([chr(int(x, 2)) for x in bin_input])
+
+    def dec_bin(self, decimal):
+        binary = ""
+        while decimal > 0:
+            binary = str(decimal % 2) + binary
+            decimal = decimal // 2
+        binary = binary.zfill(8)
+        return binary
+
+    def bin_dec(self, n):
+        return int(n, 2)

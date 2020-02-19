@@ -1,4 +1,6 @@
-# RLE encoder and decoder
+from conversion import *
+
+
 class RLE():
 
     def RLEC(self,  inputstream):
@@ -39,11 +41,12 @@ class RLE():
 
         for e in compressed_data:
             output_string += e
+        print(output_string)
 
-        return output_string
+        return Conversions.ascii_bin(1, output_string)
 
     def RLED(self, inputstream):
-
+        inputstream = Conversions.bin_ascii(1, inputstream)
         multiply = ''
         output_string = ''
         stop = False
@@ -91,13 +94,11 @@ class RLE():
         for e in compressed_data:
             output_string += e
 
-            # print(compressed_data)
+        # print(output_string)
+        # print(compressed_data)
 
-        return output_string
+        return Conversions.bin_ascii(1, output_string)
 
     def RLE_ASCII(self, inputstream):
-        byte_array = str(inputstream).encode()
-        binary_int = int.from_bytes(byte_array, "big")
-        inputstream1 = bin(binary_int)
-        inputstream1.replace('b', '')
+        inputstream1 = Conversions.ascii_bin(1, inputstream)
         return RLE.RLEC(1, inputstream1)

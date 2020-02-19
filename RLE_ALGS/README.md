@@ -1,7 +1,5 @@
 # Computer Science Projects
 
-RLEC is used to compress any binary or alphanumeric string
-
-RLED is used to decompress any COMPRESSED binary or alphanumeric string back into raw form.
-
-ASCII_ALPHANUMERIC_CONVERSION is used to convert alphanumeric inputs into ascii, for compression.
+RLEC can compress bitstreams into binary
+RLED can decompress compressed bitstreams
+RLE_ALPHANUMERIC can convert ascii strings to bistreams, for conversion.

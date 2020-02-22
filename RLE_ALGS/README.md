@@ -1,4 +1,4 @@
-# Computer Science Projects
+# RUN LENGTH ENCODING
 
 RLEC can compress bit streams into binary
 

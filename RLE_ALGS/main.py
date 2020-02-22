@@ -1,10 +1,11 @@
+# MAINLINE
+
 from RLE import *  # imports rle algs and conversions
 
 
 encoding = open('input.txt', 'r+')  # opens input.txt, in read/write form
 input_string = encoding.read()  # input_string is set to file data
 
-# MAINLINE
 
 output = RLE.RLED(1, input_string)
 

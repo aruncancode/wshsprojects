@@ -1,7 +1,7 @@
 # Computer Science Projects
 
-RLEC can compress bitstreams into binary
+RLEC can compress bit streams into binary
 
-RLED can decompress compressed bitstreams
+RLED can decompress compressed bit streams
 
-RLE_ALPHANUMERIC can convert ascii strings to bistreams, for compression.
+RLE_ALPHANUMERIC can convert ascii strings to bit streams, for compression.

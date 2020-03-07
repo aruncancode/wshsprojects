@@ -4,7 +4,7 @@ from tkinter import *
 window = Tk()
 window.title("Milky Milk")
 window.configure(bg="#5c455a")
-window.geometry("350x200+100+100")
+window.geometry("400x200+100+100")
 
 
 def total():
@@ -23,7 +23,7 @@ def total():
         total_cost += int(cheesetotal) * 4
     if buttertotal != '':
         butter_label_total.configure(text="$" + str(int(buttertotal) * 3))
-        total_cost += int(buttertotal) * 3
+        total_cost += int(buttertotal) * 3.5
     if beeftotal != '':
         beef_label_total.configure(text="$" + str(int(beeftotal) * 20))
         total_cost += int(beeftotal) * 20

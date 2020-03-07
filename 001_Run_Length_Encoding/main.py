@@ -7,7 +7,7 @@ encoding = open('input.txt', 'r+')  # opens input.txt, in read/write form
 input_string = encoding.read()  # input_string is set to file data
 
 
-output = RLE.RLED(1, input_string)
+output = RLE.RLEC(1, input_string)
 
 # output = Conversions.bin_ascii(1, RLE.RLED(
 #     1, input_string))

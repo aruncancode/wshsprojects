@@ -29,6 +29,8 @@ class RLE():
             # converts the run length to bin and adds it to output string, along with bit
             binary_string += (Conversions.dec_bin(1, int(repeats)) + bit)
 
+        print(compressed_data)
+
         return binary_string  # returns compressed bitstream
 
     def RLED(self, inputstream):

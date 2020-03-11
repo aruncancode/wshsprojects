@@ -22,21 +22,21 @@ def jpy():
     lblResult.config(text="$" + str(round(result, 2)))
 
 
-def venz():
+def sek():
     number1 = float(inpNumber1.get())
-    result = c.convert(number1, 'AUD', 'JPY')
+    result = c.convert(number1, 'AUD', 'SEK')
     lblResult.config(text="$" + str(round(result, 2)))
 
 
-def sru():
+def gbp():
     number1 = float(inpNumber1.get())
-    result = c.convert(number1, 'AUD', 'JPY')
+    result = c.convert(number1, 'AUD', 'GBP')
     lblResult.config(text="$" + str(round(result, 2)))
 
 
-def ngd():
+def idr():
     number1 = float(inpNumber1.get())
-    result = c.convert(number1, 'AUD', 'JPY')
+    result = c.convert(number1, 'AUD', 'IDR')
     lblResult.config(text="$" + str(round(result, 2)))
 
 
@@ -61,13 +61,13 @@ jpyBtn = Button(Form, text="JPY", fg="Blue", bg="black", command=jpy)
 jpyBtn.place(x=35, y=310, width=275, height=25)
 
 venvBtn = Button(
-    Form, text="VENZ", fg="Blue", bg="black", command=venz)
+    Form, text="SEK", fg="Blue", bg="black", command=sek)
 venvBtn.place(x=35, y=335, width=275, height=25)
 
-sriBtn = Button(Form, text="SRU", fg="Blue", bg="black", command=sru)
+sriBtn = Button(Form, text="GBP", fg="Blue", bg="black", command=gbp)
 sriBtn.place(x=35, y=360, width=275, height=25)
 
-ngdBtn = Button(Form, text="NGD", fg="Blue", bg="black", command=ngd)
+ngdBtn = Button(Form, text="IDR", fg="Blue", bg="black", command=idr)
 ngdBtn.place(x=35, y=385, width=275, height=25)
 
 Form.mainloop()

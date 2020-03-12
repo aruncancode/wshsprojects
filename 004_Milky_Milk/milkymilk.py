@@ -4,7 +4,7 @@ from tkinter import *
 window = Tk()
 window.title("Milky Milk")
 window.configure(bg="#5c455a")
-window.geometry("400x200+100+100")
+window.geometry("400x400+100+100")
 
 
 def total():
@@ -48,7 +48,7 @@ butter_label = Label(window, text='Butter - $3/KG',
 beef_label = Label(window, text='Beef - $20/KG',
                    bg='#2e1c14').grid(row=5, column=1)
 exe_button = Button(window, text='Total', bg='black',
-                    command=total).grid(row=6, column=2)
+                    command=total).grid(row=6, column=1)
 
 # total labels for each product
 total_label = Label(window, text='Total', bg='red')
@@ -75,5 +75,14 @@ butter_label_input = Entry(window, bg='white')
 butter_label_input.grid(row=4, column=2)
 beef_label_input = Entry(window, bg='white')
 beef_label_input.grid(row=5, column=2)
+
+
+# tended and change
+
+tended_label = Label(window, text='Tendered', bg='blue')
+tended_label.grid(row=7, column=1)
+
+tended_input = Entry(window, bg='white')
+tended_input.grid(row=7, column=2)
 
 window.mainloop()

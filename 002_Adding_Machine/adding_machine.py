@@ -1,8 +1,4 @@
-import time
-# Adding Machine - Graphical User Interface (GUI)
-# import Libraries
 from tkinter import *
-# Define Functions
 
 
 def add():
@@ -33,11 +29,12 @@ def multiplication():
 def division():
     number1 = float(inpNumber1.get())
     number2 = float(inpNumber2.get())
-    if number2 != 0:
-        result = number1 / number2
-    elif number2 == 0:
-        result = 'cannot divide by zero'
-    lblResult.config(text=result)
+    try:
+        result = number1/number2
+        lblResult.config(text=result)
+    except:
+        ZeroDivisionError
+        lblResult.config(text="ZeroDivisionError")
 
 
 def clear():
@@ -62,32 +59,33 @@ inpNumber2 = Entry(Form, font=("default", 14))
 inpNumber1.place(x=100, y=100, width=150, height=30)
 inpNumber2.place(x=100, y=150, width=150, height=30)
 # labels
-lblResult = Label(Form, font=("default", 14), bg='yellow')
+lblResult = Label(Form, font=("default", 14), bg='cyan')
 lblResult.place(x=100, y=200, width=150, height=30)
 # buttons
 # set name, style and assign a function to the command property
-btnAdd = Button(Form, text="Add", fg="black", bg="red", command=add)
+btnAdd = Button(Form, text="Add", fg="black", bg="white", command=add)
 
-btnAddition = Button(Form, text="Addition", fg="Blue", bg="black", command=add)
+btnAddition = Button(Form, text="Addition", fg="black",
+                     bg="white", command=add)
 btnAddition.place(x=35, y=275, width=275, height=30)
 # set its location and dimensions
 
-btnSubtract = Button(Form, text="Subtract", fg="Blue",
-                     bg="black", command=subtraction)
+btnSubtract = Button(Form, text="Subtract", fg="black",
+                     bg="white", command=subtraction)
 btnSubtract.place(x=35, y=300, width=275, height=25)
 # set its location and dimensions
 
 btnMultiplication = Button(Form, text="Multiplication",
-                           fg="Blue", bg="black", command=multiplication)
+                           fg="black", bg="white", command=multiplication)
 btnMultiplication.place(x=35, y=325, width=275, height=25)
 # set its location and dimensions
 
-btnDivision = Button(Form, text="Division", fg="Blue",
-                     bg="black", command=division)
+btnDivision = Button(Form, text="Division", fg="black",
+                     bg="white", command=division)
 btnDivision.place(x=35, y=350, width=275, height=25)
 # set its location and dimensions
 
-btnClear = Button(Form, text="Clear", fg="Blue", bg="black", command=clear)
+btnClear = Button(Form, text="Clear", fg="black", bg="white", command=clear)
 btnClear.place(x=35, y=375, width=275, height=25)
 # set its location and dimensions
 

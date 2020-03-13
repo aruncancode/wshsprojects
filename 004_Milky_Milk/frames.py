@@ -1,5 +1,8 @@
 from tkinter import *
 
+milk_price = 0
+global prices2
+
 
 class Page(Frame):
     def __init__(self, *args, **kwargs):
@@ -13,6 +16,7 @@ class Page1(Page):
 
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
+        global milk_price
 
         self.total_cost = 0
 
@@ -72,6 +76,7 @@ class Page1(Page):
         self.change_lbl.grid(row=9, column=3)
 
     def total(self):
+        global milk_price
         cheesetotal = self.cheese_label_input.get()
         yoghurttotal = self.yoghurt_label_input.get()
         beeftotal = self.beef_label_input.get()
@@ -100,6 +105,7 @@ class Page1(Page):
         self.total_label.configure(text="Total: $" + str(self.total_cost))
 
     def change(self):
+        global prices2
         given = self.tended_input.get()
         change = float(given) - float(self.total_cost)
         self.change_lbl.configure(text='$' + str(round(change, 2)) + '0')
@@ -108,28 +114,37 @@ class Page1(Page):
 class Page2(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
-        oneBtn = Button(self, text="1", bg="green",
-                        fg="black").grid(row=1, column=1)
-        twoBtn = Button(self, text="2", bg="green",
-                        fg="black").grid(row=1, column=2)
-        threeBtn = Button(self, text="3", bg="green",
-                          fg="black").grid(row=1, column=3)
-        fourBtn = Button(self, text="4", bg="green",
-                         fg="black").grid(row=2, column=1)
-        fiveBtn = Button(self, text="5", bg="green",
-                         fg="black").grid(row=2, column=2)
-        sixBtn = Button(self, text="6", bg="green",
-                        fg="black").grid(row=2, column=3)
-        sevemBtn = Button(self, text="7", bg="green",
-                          fg="black").grid(row=3, column=1)
-        eightBtn = Button(self, text="8", bg="green",
-                          fg="black").grid(row=3, column=2)
-        nineBtn = Button(self, text="9", bg="green",
-                         fg="black").grid(row=3, column=3)
-        zeroBtn = Button(self, text="0", bg="green",
-                         fg="black").grid(row=4, column=1)
-        dotBtn = Button(self, text=".", bg="green",
-                        fg="black").grid(row=4, column=2)
+
+        global prices2
+
+        self.value_input = Entry(self, bg='white', fg="black")
+        self.value_input.grid()
+        self.value_label = Label(self, text="value")
+        self.value_label.grid(row=1, column=1)
+        change_priceBtn = Button(
+            self, text="Add Price", command=self.change_price)
+        change_priceBtn.grid(row=1, column=0)
+
+        self.change_item = Entry(self, bg="white", fg="black")
+        self.change_item.grid(row=0, column=1)
+
+        self.listbox = Listbox(self)
+        self.prices = {'eggs': 2, 'cheese': 3,
+                       "beef": 4, "yoghurt": 2, "butter": 2, 'milk': milk_price}
+        for item in self.prices:
+            self.listbox.insert(END, item + ": $" + str(self.prices[item]))
+        self.listbox.grid()
+
+    def change_price(self):
+        global prices2
+        value = self.value_input.get()
+        item = self.change_item.get()
+        self.prices[item] = value
+        self.value_label.config(text=value + ":" + item)
+        self.listbox.delete(0, END)
+        prices2 = self.prices
+        for item in self.prices:
+            self.listbox.insert(END, item + ": $" + str(self.prices[item]))
 
 
 class MainView(Frame):

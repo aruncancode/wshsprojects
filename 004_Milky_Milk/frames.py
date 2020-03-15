@@ -1,8 +1,5 @@
 from tkinter import *
 
-milk_price = 0
-global prices2
-
 
 class Page(Frame):
     def __init__(self, *args, **kwargs):
@@ -16,13 +13,11 @@ class Page1(Page):
 
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
-        global milk_price
-
         self.total_cost = 0
 
         title_label = Label(self, text='Milky Milk Vendor',
                             bg='violet').grid(row=0, column=2, padx=5)
-        milk_label = Label(self, text='Milk - $3/L',
+        milk_label = Label(self, text='Milk -' + "$3/L",
                            bg='white').grid(row=1, column=1, padx=5, pady=5, sticky=N+S+E+W)
         cheese_label = Label(self, text='Cheese - $4/KG',
                              bg='yellow').grid(row=2, column=1, padx=5, pady=5)
@@ -76,15 +71,16 @@ class Page1(Page):
         self.change_lbl.grid(row=9, column=3)
 
     def total(self):
-        global milk_price
+        self.total_cost = 0
         cheesetotal = self.cheese_label_input.get()
         yoghurttotal = self.yoghurt_label_input.get()
         beeftotal = self.beef_label_input.get()
         buttertotal = self.butter_label_input.get()
         milktotal = self.milk_label_input.get()
 
-        if milktotal != '':
-            self.milk_label_total.configure(text="$" + str(int(milktotal) * 3))
+        if milktotal != "":
+            self.milk_label_total.configure(
+                text="$" + str(int(milktotal) * 3))
             self.total_cost += int(milktotal) * 3
         if cheesetotal != '':
             self.cheese_label_total.configure(
@@ -105,7 +101,6 @@ class Page1(Page):
         self.total_label.configure(text="Total: $" + str(self.total_cost))
 
     def change(self):
-        global prices2
         given = self.tended_input.get()
         change = float(given) - float(self.total_cost)
         self.change_lbl.configure(text='$' + str(round(change, 2)) + '0')
@@ -114,8 +109,6 @@ class Page1(Page):
 class Page2(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
-
-        global prices2
 
         self.value_input = Entry(self, bg='white', fg="black")
         self.value_input.grid()
@@ -130,13 +123,13 @@ class Page2(Page):
 
         self.listbox = Listbox(self)
         self.prices = {'eggs': 2, 'cheese': 3,
-                       "beef": 4, "yoghurt": 2, "butter": 2, 'milk': milk_price}
+                       "beef": 4, "yoghurt": 2, "butter": 2, 'milk': 3}
         for item in self.prices:
             self.listbox.insert(END, item + ": $" + str(self.prices[item]))
         self.listbox.grid()
 
     def change_price(self):
-        global prices2
+
         value = self.value_input.get()
         item = self.change_item.get()
         self.prices[item] = value

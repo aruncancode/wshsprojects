@@ -1,6 +1,10 @@
 from tkinter import *
 
 
+prices = {'cheese': 4,
+          "beef": 20, "yoghurt": 2, "butter": 3, 'milk': 5}
+
+
 class Page(Frame):
     def __init__(self, *args, **kwargs):
         Frame.__init__(self, *args, **kwargs)
@@ -10,6 +14,7 @@ class Page(Frame):
 
 
 class Page1(Page):
+    global prices
 
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
@@ -17,7 +22,7 @@ class Page1(Page):
 
         title_label = Label(self, text='Milky Milk Vendor',
                             bg='violet').grid(row=0, column=2, padx=5)
-        milk_label = Label(self, text='Milk -' + "$3/L",
+        milk_label = Label(self, text='Milk -' + "$" + str(prices['milk']) + "/L",
                            bg='white').grid(row=1, column=1, padx=5, pady=5, sticky=N+S+E+W)
         cheese_label = Label(self, text='Cheese - $4/KG',
                              bg='yellow').grid(row=2, column=1, padx=5, pady=5)
@@ -27,9 +32,9 @@ class Page1(Page):
                              bg='yellow').grid(row=4, column=1, padx=5, pady=5)
         beef_label = Label(self, text='Beef - $20/KG',
                            bg='brown').grid(row=5, column=1, padx=5, pady=5)
-        exe_button = Button(self, text='Total', bg='white',
-                            command=self.total).grid(row=6, column=1, padx=5, pady=5)
 
+        exe_button = Button(self, text='Total', bg='white',
+                            command=self.total).grid(column=1)
         # total labels for each product
         self.total_label = Label(self, text='Total', bg='red')
         self.total_label.grid(row=6, column=3)
@@ -67,10 +72,11 @@ class Page1(Page):
                             bg='white', command=self.change)
         change_btn.grid(row=9, column=1)
 
-        self.change_lbl = Label(self, text="Change", bg='white')
+        self.change_lbl = Label(self, text="Change", bg='red')
         self.change_lbl.grid(row=9, column=3)
 
     def total(self):
+
         self.total_cost = 0
         cheesetotal = self.cheese_label_input.get()
         yoghurttotal = self.yoghurt_label_input.get()
@@ -80,25 +86,26 @@ class Page1(Page):
 
         if milktotal != "":
             self.milk_label_total.configure(
-                text="$" + str(int(milktotal) * 3))
-            self.total_cost += int(milktotal) * 3
+                text="$" + str(int(milktotal) * int(prices["milk"])))
+            self.total_cost += int(milktotal) * int(prices["milk"])
         if cheesetotal != '':
             self.cheese_label_total.configure(
-                text="$" + str(int(cheesetotal) * 4))
-            self.total_cost += int(cheesetotal) * 4
+                text="$" + str(int(cheesetotal) * int(prices["cheese"])))
+            self.total_cost += int(cheesetotal) * int(prices["cheese"])
         if buttertotal != '':
             self.butter_label_total.configure(
-                text="$" + str(int(buttertotal) * 3))
-            self.total_cost += int(buttertotal) * 3.5
+                text="$" + str(int(buttertotal) * int(prices['butter'])))
+            self.total_cost += int(buttertotal) * int(prices['butter'])
         if beeftotal != '':
             self.beef_label_total.configure(
-                text="$" + str(int(beeftotal) * 20))
-            self.total_cost += int(beeftotal) * 20
+                text="$" + str(int(beeftotal) * int(prices['beef'])))
+            self.total_cost += int(beeftotal) * int(prices['beef'])
         if yoghurttotal != '':
             self.yoghurt_label_total.configure(
-                text="$" + str(int(yoghurttotal) * 2))
-            self.total_cost += int(yoghurttotal) * 2
-        self.total_label.configure(text="Total: $" + str(self.total_cost))
+                text="$" + str(int(yoghurttotal) * int(prices['yoghurt'])))
+            self.total_cost += int(yoghurttotal) * int(prices["yoghurt"])
+        self.total_label.configure(
+            text="Total: $" + str(self.total_cost) + '.00')
 
     def change(self):
         given = self.tended_input.get()
@@ -107,6 +114,8 @@ class Page1(Page):
 
 
 class Page2(Page):
+    global prices
+
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
@@ -122,22 +131,19 @@ class Page2(Page):
         self.change_item.grid(row=0, column=1)
 
         self.listbox = Listbox(self)
-        self.prices = {'eggs': 2, 'cheese': 3,
-                       "beef": 4, "yoghurt": 2, "butter": 2, 'milk': 3}
-        for item in self.prices:
-            self.listbox.insert(END, item + ": $" + str(self.prices[item]))
+        for item in prices:
+            self.listbox.insert(END, item + ": $" + str(prices[item]))
         self.listbox.grid()
 
     def change_price(self):
 
         value = self.value_input.get()
         item = self.change_item.get()
-        self.prices[item] = value
+        prices[item] = value
         self.value_label.config(text=value + ":" + item)
         self.listbox.delete(0, END)
-        prices2 = self.prices
-        for item in self.prices:
-            self.listbox.insert(END, item + ": $" + str(self.prices[item]))
+        for item in prices:
+            self.listbox.insert(END, item + ": $" + str(prices[item]))
 
 
 class MainView(Frame):
@@ -155,6 +161,7 @@ class MainView(Frame):
         p2.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
 
         b1 = Button(buttonframe, text="Vendor", command=p1.lift)
+        root.update_idletasks()
         b2 = Button(buttonframe, text="Mainframe", command=p2.lift)
 
         b1.pack(side="left")
@@ -167,5 +174,5 @@ if __name__ == "__main__":
     main = MainView(root)
     main.pack(side="top", fill="both", expand=True)
     # main.grid(row=1, column=1, columnspan=5, rowspan=5, padx=5, pady=5?)
-    root.wm_geometry("400x400")
+    root.wm_geometry("450x400")
     root.mainloop()

@@ -56,8 +56,6 @@ class Page1(Page):
         self.change_lbl = Label(self, text="Change", bg='red')
         self.change_lbl.grid(row=9, column=3)
 
-        self.test()
-
     def change(self):
         given = self.tended_input.get()
         change = float(given) - float(self.total_cost)
@@ -65,6 +63,7 @@ class Page1(Page):
 
     def get(self):
         global total
+        total = 0
         for e in range(len(entries)):
             amount_input = entries[e].get()
             if amount_input != '':

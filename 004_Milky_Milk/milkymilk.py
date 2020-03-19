@@ -1,88 +1,151 @@
 from tkinter import *
 
 
-window = Tk()
-window.title("Milky Milk")
-window.configure(bg="#5c455a")
-window.geometry("400x400+100+100")
+prices = {'cheese': 4,
+          "beef": 20, "yoghurt": 2, "butter": 3, 'milk': 5, 'pork':5, 'chicken':10, 'toilet paper':100, 'hand sanitiser':5, 'eggs':3}
+
+items = [e for e in prices]
+costs = [prices[e] for e in prices]
+entries = []
+amount_labels = []
+title_labels = []
+total = 0
 
 
-def total():
-    total_cost = 0
-    cheesetotal = cheese_label_input.get()
-    yoghurttotal = yoghurt_label_input.get()
-    beeftotal = beef_label_input.get()
-    buttertotal = butter_label_input.get()
-    milktotal = milk_label_input.get()
+class Page(Frame):
+    def __init__(self, *args, **kwargs):
+        Frame.__init__(self, *args, **kwargs)
 
-    if milktotal != '':
-        milk_label_total.configure(text="$" + str(int(milktotal) * 3))
-        total_cost += int(milktotal) * 3
-    if cheesetotal != '':
-        cheese_label_total.configure(text="$" + str(int(cheesetotal) * 4))
-        total_cost += int(cheesetotal) * 4
-    if buttertotal != '':
-        butter_label_total.configure(text="$" + str(int(buttertotal) * 3))
-        total_cost += int(buttertotal) * 3.5
-    if beeftotal != '':
-        beef_label_total.configure(text="$" + str(int(beeftotal) * 20))
-        total_cost += int(beeftotal) * 20
-    if yoghurttotal != '':
-        yoghurt_label_total.configure(
-            text="$" + str(int(yoghurttotal) * 2))
-        total_cost += int(yoghurttotal) * 2
-    total_label.configure(text="Total: $" + str(total_cost))
+    def show(self):
+        self.lift()
 
 
-# prices and names of products
-title_label = Label(window, text='Milky Milk Vendor',
-                    bg='violet').grid(row=0, column=2)
-milk_label = Label(window, text='Milk - $3/L',
-                   bg='white').grid(row=1, column=1)
-cheese_label = Label(window, text='Cheese - $4/KG',
-                     bg='yellow').grid(row=2, column=1)
-yoghurt_label = Label(window, text='Yoghurt - $2/L',
-                      bg='white').grid(row=3, column=1)
-butter_label = Label(window, text='Butter - $3/KG',
-                     bg='yellow').grid(row=4, column=1)
-beef_label = Label(window, text='Beef - $20/KG',
-                   bg='#2e1c14').grid(row=5, column=1)
-exe_button = Button(window, text='Total', bg='black',
-                    command=total).grid(row=6, column=1)
+class Page1(Page):
+    global prices, costs, items, amount_labels, entries
 
-# total labels for each product
-total_label = Label(window, text='Total', bg='red')
-total_label.grid(row=6, column=3)
-milk_label_total = Label(window, text='Cost', bg='grey')
-milk_label_total.grid(row=1, column=3)
-cheese_label_total = Label(window, text='Cost', bg='grey')
-cheese_label_total.grid(row=2, column=3)
-yoghurt_label_total = Label(window, text='Cost', bg='grey')
-yoghurt_label_total.grid(row=3, column=3)
-butter_label_total = Label(window, text='Cost', bg='grey')
-butter_label_total.grid(row=4, column=3)
-beef_label_total = Label(window, text='Cost', bg='grey')
-beef_label_total.grid(row=5, column=3)
+    def __init__(self, *args, **kwargs):
+        Page.__init__(self, *args, **kwargs)
 
-# input boxes for products
-milk_label_input = Entry(window, bg='white')
-milk_label_input.grid(row=1, column=2)
-cheese_label_input = Entry(window, bg='white')
-cheese_label_input.grid(row=2, column=2)
-yoghurt_label_input = Entry(window, bg='white')
-yoghurt_label_input.grid(row=3, column=2)
-butter_label_input = Entry(window, bg='white')
-butter_label_input.grid(row=4, column=2)
-beef_label_input = Entry(window, bg='white')
-beef_label_input.grid(row=5, column=2)
+        row = 0
+        for e in range(len(items)):
+            row += 1
+            title_labels.append(Label(
+                self, text=items[e] + ": $" + str(costs[e])))
+            title_labels[e].grid(column=1, row=row, pady=5)
+            entries.append(Entry(self))
+            entries[e].grid(column=2, row=row)
+            amount_labels.append(Label(self, text="0"))
+            amount_labels[e].grid(column=3, row=row, padx=5)
+
+        self.total_label = Label(self, text="total", bg="red", fg='black')
+        self.total_label.grid(row=row+1, column=3)
+
+        get_button = Button(self, command=self.get, text='cost')
+        get_button.grid(row=row+1,column=1)
+
+        tended_label = Label(self, text='Tendered', bg='white')
+        tended_label.grid(row=row+2,column=1, padx=5, pady=5)
+
+        self.tended_input = Entry(self, bg='white')
+        self.tended_input.grid(row=row+2,column=2)
+
+        change_btn = Button(self, text='Change',
+                            bg='white', command=self.change)
+        change_btn.grid(row=row+3,column=1)
+
+        self.change_lbl = Label(self, text="Change", bg='red')
+        self.change_lbl.grid(row=row+3,column=3)
+
+    def update_stock(self):
+        global title_labels, costs, items
+        row = 0
+        for e in range(len(items)):
+            row += 1
+            title_labels[e].configure(text=items[e] + ": $" + str(costs[e]))
+
+    def get(self):
+        global total
+        total = 0
+        for e in range(len(entries)):
+            amount_input = entries[e].get()
+            if amount_input != '':
+                sub_total = int(amount_input) * costs[e]
+                total += sub_total
+                amount_output = amount_labels[e].configure(
+                    text=str("$" + str(sub_total) + '.00'))
+            self.total_label.configure(text=("$" + str(total) + '.00'))
+
+    def change(self):
+        global total
+        given = self.tended_input.get()
+        change = float(given) - float(total)
+        self.change_lbl.configure(text='$' + str(round(change, 2)) + '0')
 
 
-# tended and change
+class Page2(Page):
+    global prices, costs, items, amount_labels, entries
 
-tended_label = Label(window, text='Tendered', bg='blue')
-tended_label.grid(row=7, column=1)
+    def __init__(self, *args, **kwargs):
+        Page.__init__(self, *args, **kwargs)
 
-tended_input = Entry(window, bg='white')
-tended_input.grid(row=7, column=2)
+        self.value_input = Entry(self, bg='white', fg="black")
+        self.value_input.grid()
+        value_label = Label(self, text="item").grid(row=1, column=1)
+        item_label = Label(self, text='value').grid(row=1, column=0)
 
-window.mainloop()
+        change_priceBtn = Button(
+            self, text="Add Price", command=self.change_price)
+        change_priceBtn.grid(row=0, column=4)
+
+        self.change_item = Entry(self, bg="white", fg="black")
+        self.change_item.grid(row=0, column=1)
+
+        self.listbox = Listbox(self)
+        for item in prices:
+            self.listbox.insert(END, item + ": $" + str(prices[item]))
+        self.listbox.grid()
+        
+        warning_label = Label(self, text='DO NOT ADD ANY ITEMS', bg='yellow').grid()
+
+    def change_price(self):
+        global items, costs, title_labels
+        value = self.value_input.get()
+        item = self.change_item.get()
+        prices[item] = value
+        self.listbox.delete(0, END)
+        for item in prices:
+            self.listbox.insert(END, item + ": $" + str(prices[item]))
+        items = [e for e in prices]
+        costs = [int(prices[e]) for e in prices]
+        Page1.update_stock(Page1)
+
+
+class MainView(Frame):
+    def __init__(self, *args, **kwargs):
+        Frame.__init__(self, *args, **kwargs)
+        p1 = Page1(self)
+        p2 = Page2(self)
+
+        buttonframe = Frame(self)
+        container = Frame(self)
+        buttonframe.pack(side="top", fill="x", expand=False)
+        container.pack(side="top", fill="both", expand=True)
+
+        p1.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        p2.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+
+        b1 = Button(buttonframe, text="Vendor", command=p1.lift)
+        b2 = Button(buttonframe, text="Mainframe", command=p2.lift)
+
+        b1.pack(side="left")
+        b2.pack(side="left")
+        p1.show()
+
+
+if __name__ == "__main__":
+    root = Tk()
+    root.geometry('500x500') 
+    main = MainView(root)
+    main.pack(side="top", fill="both", expand=True)
+    root.resizable(height = None, width = None)
+    root.mainloop()

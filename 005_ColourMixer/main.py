@@ -4,13 +4,13 @@ master = Tk()
 
 
 def test(decimal):
-    red = r.get()
-    green = g.get()
-    blue = b.get()
+    # red = r.get()
+    # green = g.get()
+    # blue = b.get()
 
-    red = hex(red).split('x')[-1]
-    green = hex(green).split('x')[-1]
-    blue = hex(blue).split('x')[-1]
+    red = hex(r.get()).split('x')[-1]
+    green = hex(g.get()).split('x')[-1]
+    blue = hex(b.get()).split('x')[-1]
 
     if len(red) == 1:
         red = '0' + red
@@ -25,7 +25,7 @@ def test(decimal):
     hex_label['fg'] = mix
 
 
-hex_label = Label(text='#ffffff', fg='black')
+hex_label = Label(text='#ffffff', fg='black', font=('Consolas', 25))
 hex_label.grid(column=1)
 
 mixed_label = Label(bg='#ffffff')

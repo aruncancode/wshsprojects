@@ -39,4 +39,5 @@ b = Scale(master, from_=0, to=255, orient=HORIZONTAL, command=test, fg='blue')
 b.grid(column=1)
 
 
+master.title('Colour Mixer')
 master.mainloop()

@@ -22,20 +22,21 @@ def test(decimal):
     mix = '#' + str(red) + str(green) + str(blue)
     mixed_label['bg'] = mix
     hex_label['text'] = mix
+    hex_label['fg'] = mix
 
 
-hex_label = Label(text='#ffffff')
-hex_label.grid(row=2, column=3)
+hex_label = Label(text='#ffffff', fg='black')
+hex_label.grid(column=1)
 
 mixed_label = Label(bg='#ffffff')
-mixed_label.grid(row=1, column=3, ipadx=100, ipady=100)
+mixed_label.grid(column=1, ipadx=100, ipady=100)
 
 r = Scale(master, from_=0, to=255, orient=HORIZONTAL, command=test, fg='red')
-r.grid(row=0, column=1)
+r.grid(column=1)
 g = Scale(master, from_=0, to=255, orient=HORIZONTAL, command=test, fg='green')
-g.grid(row=1, column=1)
+g.grid(column=1)
 b = Scale(master, from_=0, to=255, orient=HORIZONTAL, command=test, fg='blue')
-b.grid(row=2, column=1)
+b.grid(column=1)
 
 
 master.mainloop()

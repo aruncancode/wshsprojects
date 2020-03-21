@@ -4,10 +4,6 @@ master = Tk()
 
 
 def test(decimal):
-    # red = r.get()
-    # green = g.get()
-    # blue = b.get()
-
     red = hex(r.get()).split('x')[-1]
     green = hex(g.get()).split('x')[-1]
     blue = hex(b.get()).split('x')[-1]

@@ -6,13 +6,13 @@ def encrypt(text, s):
 
     for e in text:
         if e.isupper():
-            index = alphabet.index(e) + s
+            index = alphabet.index(e)
             output += shitfted_alphabet[index]
-        else:
-            e = e.upper()
-            index = alphabet.index(e) + s
+        elif e.islower():
+            index = alphabet.index(e.upper())
             output += (shitfted_alphabet[index]).lower()
-
+        else:
+            output += e
     return output
 
 
@@ -24,14 +24,16 @@ def decrypt(text, s):
 
     for e in text:
         if e.isupper():
-            index = shitfted_alphabet.index(e) - s
+            index = shitfted_alphabet.index(e)
             output += shitfted_alphabet[index]
-        else:
+        elif e.islower():
             e = e.upper()
-            index = shitfted_alphabet.index(e) - s
+            index = shitfted_alphabet.index(e)
             output += (alphabet[index]).lower()
-
+        else:
+            output += e
     return output
 
 
-print(decrypt("EvyrTewwASVH", 2))
+print("ENCRYPTED", encrypt("ArunARUN", -2))
+print("DECRYPTED", decrypt("zqtmozrrvnqcsdrs123234", 25))

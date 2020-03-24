@@ -1,41 +1,37 @@
 def encrypt(text, s):
+    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    shitfted_alphabet = alphabet[s:] + alphabet[:s]
+    output = ""
 
-    result = ""
- # transverse the plain text
-    for i in range(len(text)):
-        char = text[i]
-        # Encrypt uppercase characters in plain text
-
-        if (char.isupper()):
-            result += chr((ord(char) + s-65) % 26 + 65)
-        # Encrypt lowercase characters in plain text
+    for e in text:
+        if e.isupper():
+            index = alphabet.index(e) + s
+            output += shitfted_alphabet[index]
         else:
-            result += chr((ord(char) + s - 97) % 26 + 97)
+            e = e.upper()
+            index = alphabet.index(e) + s
+            output += (shitfted_alphabet[index]).lower()
 
-        return result
+    return output
 
 
-message = 'c'  # encrypted message
-LETTERS = 'arunpass'
+def decrypt(text, s):
+    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    shitfted_alphabet = alphabet[s:] + alphabet[:s]
+    output = ""
 
-for key in range(len(LETTERS)):
-    translated = ''
-    for symbol in message:
-        if symbol in LETTERS:
-            num = LETTERS.find(symbol)
-            num = num - key
-            if num < 0:
-                num = num + len(LETTERS)
-            translated = translated + LETTERS[num]
+    for e in text:
+        if e.isupper():
+            index = shitfted_alphabet.index(e) - s
+            output += shitfted_alphabet[index]
         else:
-            translated = translated + symbol
+            e = e.upper()
+            index = shitfted_alphabet.index(e) - s
+            output += (alphabet[index]).lower()
 
-print('Hacking key #%s: %s' % (key, translated))
+    return output
 
 
-# text = "arunpass"
-# s = 2
-
-# print("Plain Text : " + text)
-# print("Shift pattern : " + str(s))
-# print("Cipher: " + encrypt(text, s))
+print(decrypt("EvyrTewwASVH", 2))

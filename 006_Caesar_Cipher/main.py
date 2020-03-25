@@ -38,5 +38,5 @@ class CaesarCipher():
 
 C = CaesarCipher()
 
-print("ENCRYPTED", C.encrypt("ozno", 5))
+print("ENCRYPTED", C.encrypt("test", 5))
 print("DECRYPTED", C.decrypt("fyyfhp fy ifbs", -21))

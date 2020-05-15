@@ -1,12 +1,12 @@
 class CaesarCipher():
 
-    def encrypt(self, text, s):
+    def caesar_e(self, plaintext, keyvalue):
         alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                     "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-        shitfted_alphabet = alphabet[s:] + alphabet[:s]
+        shitfted_alphabet = alphabet[keyvalue:] + alphabet[:keyvalue]
         output = ""
 
-        for e in text:
+        for e in plaintext:
             if e.isupper():
                 index = alphabet.index(e)
                 output += shitfted_alphabet[index]
@@ -17,13 +17,13 @@ class CaesarCipher():
                 output += e
         return output
 
-    def decrypt(self, text, s):
+    def caesar_d(self, ciphertext, keyvalue):
         alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                     "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-        shitfted_alphabet = alphabet[s:] + alphabet[:s]
+        shitfted_alphabet = alphabet[keyvalue:] + alphabet[:keyvalue]
         output = ""
 
-        for e in text:
+        for e in ciphertext:
             if e.isupper():
                 index = shitfted_alphabet.index(e)
                 output += shitfted_alphabet[index]
@@ -38,5 +38,5 @@ class CaesarCipher():
 
 C = CaesarCipher()
 
-print("ENCRYPTED", C.encrypt("test", 5))
-print("DECRYPTED", C.decrypt("fyyfhp fy ifbs", -21))
+print("ENCRYPTED:", C.caesar_e('arun234', 5))
+print("DECRYPTED:", C.caesar_d("yjxy", 5))

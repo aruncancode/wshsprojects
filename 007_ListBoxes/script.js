@@ -7,7 +7,7 @@ function addValue() {
         var opt = document.createElement("option");
         opt.text = add_value;
         opt.value = add_value;
-        document.getElementById("options").options.add(opt);
+        document.getElementById("options").add(opt);
         document.getElementById("addBox").value = "";
     }
 }

@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Boxes</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-    <input type="button" id="add" value="Add" onclick="addValue();" />
-    <input name="textinput" type="text" />
+    <h1>
+        <div id="test">list box</div>
+    </h1>
+
+    <input id="addBox" type="text" placeholder="enter value">
 
     <div id="listbox">
         <select id="options" multiple="multiple">
@@ -19,13 +23,13 @@
             <option value="two">two</option>
             <option value="three">three</option>
             <option value="four">four</option>
-
         </select>
     </div>
 
+    <button id="addButton" type="button" onclick="addValue();">add</button>
+    <button id="delButton" type=button onclick="delValue();"> delete </button>
+
     <script type="text/javascript" src="script.js"></script>
-
-
 
 
 </body>

@@ -1,6 +1,18 @@
-var i = 0;
-addValue(){
-    add_value = document.form1.textinput.value;
-    AddOpt = new Option(add_Value, add_value);
-    document.getElementById("options")[i++] = AddOpt;
+function addValue() {
+    var add_value = document.getElementById("addBox").value;
+    if (add_value == "") {
+        alert("please enter a value");
+    }
+    else {
+        var opt = document.createElement("option");
+        opt.text = add_value;
+        opt.value = add_value;
+        document.getElementById("options").options.add(opt);
+        document.getElementById("addBox").value = "";
+    }
+}
+
+function delValue() {
+    var del_value = document.getElementById("options");
+    del_value.remove(del_value.selectedIndex);
 }

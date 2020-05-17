@@ -5,7 +5,7 @@ function addValue() {
     }
     else {
         var opt = document.createElement("option");
-        opt.text = add_value;
+        opt.innerHTML = add_value;
         opt.value = add_value;
         document.getElementById("options").add(opt);
         document.getElementById("addBox").value = "";
@@ -13,6 +13,12 @@ function addValue() {
 }
 
 function delValue() {
-    var del_value = document.getElementById("options");
-    del_value.remove(del_value.selectedIndex);
+    var option_menu = document.getElementById("options");
+    if (option_menu.selectedIndex == -1) {
+        alert("please select an option to delete");
+    }
+    else {
+        option_menu.remove(option_menu.selectedIndex);
+
+    }
 }

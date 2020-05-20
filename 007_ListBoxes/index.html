@@ -10,23 +10,27 @@
 
 <body>
 
-    <h1>
-        <div id="test">list box</div>
-    </h1>
+
+    <div id="title">
+        <h1>list box</h1>
+    </div>
 
     <input id="addBox" type="text" placeholder="enter value">
 
-    <div id="listbox">
+    <div id="box1">
         <select id="options" multiple="multiple">
-            <option value="one">one</option>
-            <option value="two">two</option>
-            <option value="three">three</option>
-            <option value="four">four</option>
+            <option value="one" onclick="showValue();">one</option>
+            <option value="two" onclick="showValue();">two</option>
         </select>
+        <button class="buttone" id="addButton" type="button" onclick="addValue();">add</button>
+        <button class="buttone" id="delButton" type=button onclick="delValue();"> delete </button>
     </div>
 
-    <button id="addButton" type="button" onclick="addValue();">add</button>
-    <button id="delButton" type=button onclick="delValue();"> delete </button>
+    <div id="box2">
+        <select id="options2" multiple="multiple"></select>
+        <button class="buttone" id="addButton2" type="button" onclick="addValue2();">add</button>
+        <button class="buttone" id="delButton2" type=button onclick="delValue2();"> delete </button>
+    </div>
 
     <script type="text/javascript" src="script.js"></script>
 

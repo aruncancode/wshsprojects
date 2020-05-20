@@ -19,6 +19,5 @@ function delValue() {
     }
     else {
         option_menu.remove(option_menu.selectedIndex);
-
     }
 }

@@ -1,7 +1,4 @@
-var x = {
-    "one": [1, 2, 3, 4],
-    "two": [2]
-};
+var x = {};
 
 function addValue() {
     var add_value = document.getElementById("addBox").value;

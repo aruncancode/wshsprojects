@@ -1,0 +1,26 @@
+.temperatureInputs {
+	font-size: 30px;
+	margin-top: 50px;
+	margin-left: 50px;
+	display: inline-flex;
+	align-self: center;
+}
+
+.temperatureInputs input {
+	font-size: 20px;
+	background-color: #f4f4f4;
+	padding: 12px 20px;
+	margin: 8px 0px;
+	box-sizing: border-box;
+	border: none;
+	font-family: "Courier New", Courier, monospace;
+}
+
+#celsius {
+	margin-left: 50px;
+}
+
+#equals {
+	margin-left: 50px;
+	margin-top: 80px;
+}

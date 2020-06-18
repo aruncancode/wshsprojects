@@ -1,0 +1,76 @@
+.slider {
+	width: 100%;
+	margin: 0.7px 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+}
+.slider:focus {
+	outline: none;
+}
+.slider::-webkit-slider-runnable-track {
+	background: #474d4d;
+	border: 0;
+	width: 100%;
+	height: 25.6px;
+	cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+	margin-top: -0.7px;
+	width: 18px;
+	height: 27px;
+	background: rgba(255, 12, 119, 0.93);
+	border: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+.slider:focus::-webkit-slider-runnable-track {
+	background: #515858;
+}
+.slider::-moz-range-track {
+	background: #474d4d;
+	border: 0;
+	width: 100%;
+	height: 25.6px;
+	cursor: pointer;
+}
+.slider::-moz-range-thumb {
+	width: 18px;
+	height: 27px;
+	background: rgba(255, 12, 119, 0.93);
+	border: 0;
+	cursor: pointer;
+}
+
+.slider::-ms-track {
+	background: transparent;
+	border-color: transparent;
+	border-width: 0.7px 0;
+	color: transparent;
+	width: 100%;
+	height: 25.6px;
+	cursor: pointer;
+}
+.slider::-ms-fill-lower {
+	background: #3d4242;
+	border: 0;
+}
+.slider::-ms-fill-upper {
+	background: #474d4d;
+	border: 0;
+}
+.slider::-ms-thumb {
+	width: 18px;
+	height: 27px;
+	background: rgba(255, 12, 119, 0.93);
+	border: 0;
+	cursor: pointer;
+	margin-top: 0px;
+}
+.slider:focus::-ms-fill-lower {
+	background: #474d4d;
+}
+.slider:focus::-ms-fill-upper {
+	background: #515858;
+}
+
+/* got this from online */

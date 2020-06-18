@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../slider.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="../styles.css" />
+
+		<title>Colour Picker</title>
+	</head>
+
+	<body>
+		<header id="mainHeader">
+			<div class="container">
+				<h1>Colour Picker</h1>
+			</div>
+		</header>
+
+		<nav id="navbar">
+			<div class="container">
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="index.html">Colour Picker</a></li>
+					<li>
+						<a href="../TemperatureConverter/index.html"
+							>Temperature Converter</a
+						>
+					</li>
+					<li>
+						<a href="../MultiplicationGrid/index.html">Multiplication Grid</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div id="title">
+			<h1>
+				Pick a colour!
+				<div id="colour_mix"></div>
+			</h1>
+		</div>
+
+		<div class="sliders">
+			<input
+				class="slider"
+				type="range"
+				min="0"
+				max="255"
+				+
+				step="1"
+				id="red"
+				onmousemove="changeColour();"
+				value="0"
+			/>
+			<input
+				class="slider"
+				type="range"
+				min="0"
+				max="255"
+				+
+				step="1"
+				id="green"
+				onmousemove="changeColour();"
+				value="0"
+			/>
+			<input
+				class="slider"
+				type="range"
+				min="0"
+				max="255"
+				+
+				step="1"
+				id="blue"
+				onmousemove="changeColour();"
+				value="0"
+			/>
+		</div>
+		<div id="display"></div>
+
+		<script type="text/javascript" src="colourPicker.js"></script>
+	</body>
+</html>

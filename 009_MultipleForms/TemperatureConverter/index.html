@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="localstyles.css" />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body>
+		<header id="mainHeader">
+			<div class="container">
+				<h1>Termperature Converter</h1>
+			</div>
+		</header>
+
+		<nav id="navbar">
+			<div class="container">
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../ColourPicker/index.html">Colour Picker</a></li>
+					<li>
+						<a href="../TemperatureConverter/index.html"
+							>Temperature Converter</a
+						>
+					</li>
+					<li>
+						<a href="../MultiplicationGrid/index.html">Multiplication Grid</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div id="container">
+			<div class="temperatureInputs">
+				<div id="farhenheit">
+					<h2>
+						Fahrenheit
+					</h2>
+					<input type="text" id="fahrenheitInput" oninput="toCel();" />
+				</div>
+				<div id="equals">
+					<h1>
+						=
+					</h1>
+				</div>
+				<div id="celsius">
+					<h2>
+						Celsius
+					</h2>
+					<input type="text" id="celciusInput" oninput="toFar();" />
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

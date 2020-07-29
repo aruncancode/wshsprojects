@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
 		<title>Document</title>
 	</head>
 	<body>
@@ -12,10 +13,36 @@
 		<div class="options">
 			<div class="meals">
 				<label for="MAG">Margherita</label>
-				<input type="Radio" id="MAG" value="MAG" />
+				<input
+					type="Checkbox"
+					id="MAG"
+					value="MAG"
+					onclick="process(document.wizard_form, this);"
+				/>
 				<label for="VEG">Vegetariana</label>
-				<input type="Radio" id="VEG" value="VEG" />
+				<input type="Checkbox" id="VEG" value="VEG" />
+				<label for="HAW">Hawaiian</label>
+				<input type="Checkbox" id="HAW" value="HAW" />
+				<label for="NEW">New Yorker</label>
+				<input type="Checkbox" id="NEW" value="NEW" />
+			</div>
+			<div class="sizes">
+				<label for="SML">Small</label>
+				<input type="Checkbox" id="SML" value="SML" />
+				<label for="MED">Medium</label>
+				<input type="Checkbox" id="MED" value="MED" />
+				<label for="LAG">Large</label>
+				<input type="Checkbox" id="LAG" value="LAG" />
+			</div>
+			<div class="toppings">
+				<label for="BAC">Bacon</label>
+				<input type="Checkbox" id="BAC" value="BAC" />
+				<label for="CHE">Cheese</label>
+				<input type="Checkbox" id="CHE" value="CHE" />
+				<label for="PEP">Pepperoni</label>
+				<input type="Checkbox" id="PEP" value="PEP" />
 			</div>
 		</div>
+		<script scr="script.js"></script>
 	</body>
 </html>

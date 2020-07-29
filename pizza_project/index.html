@@ -7,42 +7,118 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<header>
-			<h1>Welcome to Dominos</h1>
+		<header class="header">
+			<h1>Welcome to Arun's Pizza House</h1>
 		</header>
 		<div class="options">
 			<div class="meals">
+				<h2>
+					MEALS
+				</h2>
 				<label for="MAG">Margherita</label>
 				<input
 					type="Checkbox"
 					id="MAG"
-					value="MAG"
-					onclick="process(document.wizard_form, this);"
+					onclick="get(this.id , this.checked);"
 				/>
 				<label for="VEG">Vegetariana</label>
-				<input type="Checkbox" id="VEG" value="VEG" />
+				<input
+					type="Checkbox"
+					id="VEG"
+					onclick="get(this.id , this.checked);"
+				/>
 				<label for="HAW">Hawaiian</label>
-				<input type="Checkbox" id="HAW" value="HAW" />
+				<input
+					type="Checkbox"
+					id="HAW"
+					onclick="get(this.id , this.checked);"
+				/>
 				<label for="NEW">New Yorker</label>
-				<input type="Checkbox" id="NEW" value="NEW" />
+				<input
+					type="Checkbox"
+					id="NEW"
+					onclick="get(this.id , this.checked);"
+				/>
 			</div>
+
 			<div class="sizes">
+				<h2>SIZES</h2>
+
 				<label for="SML">Small</label>
-				<input type="Checkbox" id="SML" value="SML" />
+				<input
+					type="Checkbox"
+					id="SML"
+					onclick="get(this.id , this.checked);"
+				/>
 				<label for="MED">Medium</label>
-				<input type="Checkbox" id="MED" value="MED" />
+				<input
+					type="Checkbox"
+					id="MED"
+					onclick="get(this.id , this.checked);"
+				/>
 				<label for="LAG">Large</label>
-				<input type="Checkbox" id="LAG" value="LAG" />
+				<input
+					type="Checkbox"
+					id="LAG"
+					onclick="get(this.id , this.checked);"
+				/>
 			</div>
 			<div class="toppings">
+				<h2>TOPPINGS</h2>
+
 				<label for="BAC">Bacon</label>
-				<input type="Checkbox" id="BAC" value="BAC" />
+				<input
+					type="Checkbox"
+					id="BAC"
+					onclick="get(this.id , this.checked);"
+				/>
 				<label for="CHE">Cheese</label>
-				<input type="Checkbox" id="CHE" value="CHE" />
+				<input
+					type="Checkbox"
+					id="CHE"
+					onclick="get(this.id , this.checked);"
+				/>
 				<label for="PEP">Pepperoni</label>
-				<input type="Checkbox" id="PEP" value="PEP" />
+				<input
+					type="Checkbox"
+					id="PEP"
+					onclick="get(this.id , this.checked);"
+				/>
+			</div>
+			<div class="drinks">
+				<h2>Drinks</h2>
+
+				<label for="FAN">Fanta</label>
+				<input
+					type="Checkbox"
+					id="FAN"
+					onclick="get(this.id , this.checked);"
+				/>
+				<label for="COKE">Coke</label>
+				<input
+					type="Checkbox"
+					id="COKE"
+					onclick="get(this.id , this.checked);"
+				/>
+				<label for="H20">Water</label>
+				<input
+					type="Checkbox"
+					id="H20"
+					onclick="get(this.id , this.checked);"
+				/>
+				<label for="SLURPE">Slurpe Juice</label>
+				<input
+					type="Checkbox"
+					id="SLURPE"
+					onclick="get(this.id , this.checked);"
+				/>
 			</div>
 		</div>
-		<script scr="script.js"></script>
+		<div class="checkout">
+			<div>
+				<h1 id="cost">$0</h1>
+			</div>
+		</div>
+		<script src="script.js"></script>
 	</body>
 </html>

@@ -1,3 +1,52 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+}
+
+.header {
+	padding: 1px;
+	text-align: center;
+	background: #1abc9c;
+	color: white;
+	font-size: 20px;
+}
+
 .options {
+	margin-top: 20px;
+	padding: 10px;
+	border: 2px solid black;
 	display: inline-block;
+}
+
+.meals {
+	border: 2px solid green;
+	padding: 10px;
+	margin: 10px;
+}
+
+.sizes {
+	border: 2px solid blue;
+	padding: 10px;
+	margin: 10px;
+}
+
+.toppings {
+	border: 2px solid red;
+	padding: 10px;
+	margin: 10px;
+}
+.drinks {
+	border: 2px solid darkgoldenrod;
+	padding: 10px;
+	margin: 10px;
+}
+
+.checkout {
+	margin-top: 20px;
+	position: relative;
+	float: inline-end;
+}
+
+.checkout #cost {
+	font-size: 50px;
+	background-color: rgb(94, 177, 94);
 }

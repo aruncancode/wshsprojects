@@ -46,7 +46,11 @@ body {
 	float: inline-end;
 }
 
-.checkout #cost {
+#cost {
 	font-size: 50px;
 	background-color: rgb(94, 177, 94);
+}
+
+#receiptItems {
+	margin-left: 20px;
 }

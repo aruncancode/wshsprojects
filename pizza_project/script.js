@@ -1,7 +1,7 @@
 var n = 0;
 
 cost = 0;
-chosen = [];
+var chosen = [];
 
 choices = {
 	MAG: [0, 5],
@@ -47,6 +47,7 @@ function get(id, clicked) {
 }
 
 function process() {
+	chosen = [];
 	cost = 0;
 	for (i = 0; i < Object.keys(choices).length; i++) {
 		if (choices[Object.keys(choices)[i]][0]) {
@@ -58,9 +59,6 @@ function process() {
 }
 
 function redirect() {
-	for (i = 0; i < chosen.length; i++) {
-		var s = document.createElement("h3");
-		s.innerHTML = "1 X " + chosen[i];
-		document.getElementById("receiptItems").appendChild(s);
-	}
+	window.location.href = "checkout.html";
+	window.localStorage.setItem("chosen", chosen);
 }

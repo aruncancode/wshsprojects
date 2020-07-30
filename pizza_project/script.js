@@ -1,5 +1,7 @@
-var cost = 0;
 var n = 0;
+
+cost = 0;
+chosen = [];
 
 choices = {
 	MAG: [0, 5],
@@ -49,7 +51,16 @@ function process() {
 	for (i = 0; i < Object.keys(choices).length; i++) {
 		if (choices[Object.keys(choices)[i]][0]) {
 			cost += choices[Object.keys(choices)[i]][1];
+			chosen.push(Object.keys(choices)[i]);
 		}
 	}
 	document.getElementById("cost").innerHTML = "$" + cost;
+}
+
+function redirect() {
+	for (i = 0; i < chosen.length; i++) {
+		var s = document.createElement("h3");
+		s.innerHTML = "1 X " + chosen[i];
+		document.getElementById("receiptItems").appendChild(s);
+	}
 }

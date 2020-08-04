@@ -1,5 +1,6 @@
 body {
 	font-family: "Courier New", Courier, monospace;
+	color: white;
 }
 
 .header {
@@ -53,4 +54,17 @@ body {
 
 #receiptItems {
 	margin-left: 20px;
+}
+
+.input [type="button"] {
+	background-color: blue;
+	border: none;
+	padding: 15px 32px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.bg {
+	background-image: url("bg.jpeg");
 }

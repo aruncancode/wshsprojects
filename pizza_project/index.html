@@ -10,114 +10,116 @@
 		<header class="header">
 			<h1>Welcome to Arun's Pizza House</h1>
 		</header>
-		<div class="options">
-			<div class="meals">
-				<h2>
-					Meals
-				</h2>
-				<label for="MAG">Margherita</label>
-				<input
-					type="Checkbox"
-					id="MAG"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="VEG">Vegetariana</label>
-				<input
-					type="Checkbox"
-					id="VEG"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="HAW">Hawaiian</label>
-				<input
-					type="Checkbox"
-					id="HAW"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="NEW">New Yorker</label>
-				<input
-					type="Checkbox"
-					id="NEW"
-					onclick="get(this.id , this.checked);"
-				/>
-			</div>
+		<div class="bg">
+			<div class="options">
+				<div class="meals">
+					<h2>
+						Meals
+					</h2>
+					<label for="Margherita">Margherita</label>
+					<input
+						type="Checkbox"
+						id="Margherita"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Vegetariana">Vegetariana</label>
+					<input
+						type="Checkbox"
+						id="Vegetariana"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Hawaiian">Hawaiian</label>
+					<input
+						type="Checkbox"
+						id="Hawaiian"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="New Yorker">New-Yorker</label>
+					<input
+						type="Checkbox"
+						id="New Yorker"
+						onclick="get(this.id , this.checked);"
+					/>
+				</div>
 
-			<div class="sizes">
-				<h2>Sizes</h2>
+				<div class="sizes">
+					<h2>Sizes</h2>
 
-				<label for="SML">Small</label>
-				<input
-					type="Checkbox"
-					id="SML"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="MED">Medium</label>
-				<input
-					type="Checkbox"
-					id="MED"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="LAG">Large</label>
-				<input
-					type="Checkbox"
-					id="LAG"
-					onclick="get(this.id , this.checked);"
-				/>
-			</div>
-			<div class="toppings">
-				<h2>Toppings</h2>
+					<label for="Small">Small</label>
+					<input
+						type="Checkbox"
+						id="Small"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Medium">Medium</label>
+					<input
+						type="Checkbox"
+						id="Medium"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Large">Large</label>
+					<input
+						type="Checkbox"
+						id="Large"
+						onclick="get(this.id , this.checked);"
+					/>
+				</div>
+				<div class="toppings">
+					<h2>Toppings</h2>
 
-				<label for="BAC">Bacon</label>
-				<input
-					type="Checkbox"
-					id="BAC"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="CHE">Cheese</label>
-				<input
-					type="Checkbox"
-					id="CHE"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="PEP">Pepperoni</label>
-				<input
-					type="Checkbox"
-					id="PEP"
-					onclick="get(this.id , this.checked);"
-				/>
-			</div>
-			<div class="drinks">
-				<h2>Drinks</h2>
+					<label for="Bacon">Bacon</label>
+					<input
+						type="Checkbox"
+						id="Bacon"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Cheese">Cheese</label>
+					<input
+						type="Checkbox"
+						id="Cheese"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Pepperoni">Pepperoni</label>
+					<input
+						type="Checkbox"
+						id="Pepperoni"
+						onclick="get(this.id , this.checked);"
+					/>
+				</div>
+				<div class="drinks">
+					<h2>Drinks</h2>
 
-				<label for="FAN">Fanta</label>
-				<input
-					type="Checkbox"
-					id="FAN"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="COKE">Coke</label>
-				<input
-					type="Checkbox"
-					id="COKE"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="H20">Water</label>
-				<input
-					type="Checkbox"
-					id="H20"
-					onclick="get(this.id , this.checked);"
-				/>
-				<label for="SLURPE">Slurpe Juice</label>
-				<input
-					type="Checkbox"
-					id="SLURPE"
-					onclick="get(this.id , this.checked);"
-				/>
+					<label for="Fanta">Fanta</label>
+					<input
+						type="Checkbox"
+						id="Fanta"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Coke">Coke</label>
+					<input
+						type="Checkbox"
+						id="Coke"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Water">Water</label>
+					<input
+						type="Checkbox"
+						id="Water"
+						onclick="get(this.id , this.checked);"
+					/>
+					<label for="Slurpe Juice">Slurpe Juice</label>
+					<input
+						type="Checkbox"
+						id="Slurpe Juice"
+						onclick="get(this.id , this.checked);"
+					/>
+				</div>
 			</div>
-		</div>
-		<div class="checkout">
-			<div>
-				<h1 id="cost">$0</h1>
-				<input type="button" value="Checkout" onclick="redirect();" />
+			<div class="checkout">
+				<div>
+					<h1 id="cost">$0</h1>
+					<input type="button" value="Checkout" onclick="redirect();" />
+				</div>
 			</div>
 		</div>
 		<script src="script.js"></script>

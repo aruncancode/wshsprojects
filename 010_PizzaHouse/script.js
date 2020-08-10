@@ -39,7 +39,7 @@ function limit_size(id, n) {
 
 function get(id, clicked) {
 	choices[id][0] = clicked;
-	if (["SML", "MED", "LAG"].includes(id)) {
+	if (["Small", "Medium", "Large"].includes(id)) {
 		n = !n;
 		limit_size(id, n);
 	}

@@ -1,14 +1,31 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 30px;
+	background-color: #d5d1c7;
+}
+
 #button {
-	background-color: #4caf50; /* Green */
+	margin-top: 100px;
+	background-color: #d0fd98; /* Green */
 	border: none;
-	color: white;
-	padding: 30px;
+	color: black;
+	padding: 20px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
 }
 
-body {
-	background-color: #d5d1c7;
+#dice {
+	transform: scale(1.5, 1.5);
+}
+
+#container {
+	text-align: center;
+	padding: 200px;
+}
+
+#names {
+	margin-bottom: 100px;
+	padding: 30px;
 }

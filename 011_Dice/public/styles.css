@@ -5,7 +5,7 @@ body {
 }
 
 #button {
-	margin-top: 100px;
+	margin-top: 50px;
 	background-color: #d0fd98; /* Green */
 	border: none;
 	color: black;
@@ -22,10 +22,11 @@ body {
 
 #container {
 	text-align: center;
-	padding: 200px;
+	padding: 100px;
 }
 
 #names {
+	position: absolute;
 	margin-bottom: 100px;
 	padding: 30px;
 }

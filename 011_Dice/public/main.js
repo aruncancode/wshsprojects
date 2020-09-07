@@ -44,15 +44,9 @@ function roll() {
 	face1.src = face[num1];
 	face2.src = face[num2];
 
-	for (x of Object.keys(names)) {
-		if (
-			x == num1.toString(10) + num2.toString(10) ||
-			x == num1.toString(10) + num2.toString(10).split("").reverse().join("")
-		) {
-			roll_name.innerHTML = names[num1.toString(10) + num2.toString(10)];
-			break;
-		} else {
-			roll_name.innerHTML = " ";
-		}
+	if (names[num1.toString(10) + num2.toString(10)] == undefined) {
+		roll_name.innerHTML = names[num2.toString(10) + num1.toString(10)];
+	} else {
+		roll_name.innerHTML = names[num1.toString(10) + num2.toString(10)];
 	}
 }

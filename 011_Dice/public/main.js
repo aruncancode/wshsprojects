@@ -1,5 +1,3 @@
-face1 = document.getElementById("face1");
-face2 = document.getElementById("face2");
 roll_name = document.getElementById("names");
 
 face = {
@@ -41,12 +39,19 @@ function roll() {
 	num1 = Math.floor(Math.random() * 6) + 1;
 	num2 = Math.floor(Math.random() * 6) + 1;
 
-	face1.src = face[num1];
-	face2.src = face[num2];
+	$("#face1").attr("src", face[num1]);
+	$("#face2").attr("src", face[num2]);
 
 	if (names[num1.toString(10) + num2.toString(10)] == undefined) {
 		roll_name.innerHTML = names[num2.toString(10) + num1.toString(10)];
 	} else {
 		roll_name.innerHTML = names[num1.toString(10) + num2.toString(10)];
 	}
+}
+
+n = 1;
+function something() {
+	if (n) $("h2").fadeOut();
+	else $("h2").fadeIn();
+	n = !n;
 }

@@ -1,0 +1,35 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+	padding: 100px;
+}
+
+.machine {
+	background-color: black;
+	width: 300px;
+	height: 600px;
+	padding: 10px;
+}
+
+.header {
+	padding: 20px;
+	text-align: center;
+}
+
+.headerbg {
+	padding: 10px;
+	background-color: white;
+}
+
+/* .slots {
+	padding: 20px;
+	background-color: white;
+} */
+
+.slot {
+	background-color: red;
+	width: 100px;
+	height: 100px;
+}

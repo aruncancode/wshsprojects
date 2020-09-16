@@ -2,6 +2,11 @@ body {
 	font-family: "Courier New", Courier, monospace;
 }
 
+#test1 {
+	width: 200px;
+	height: 100px;
+	background-color: black;
+}
 .container {
 	padding: 100px;
 }
@@ -23,13 +28,14 @@ body {
 	background-color: white;
 }
 
-/* .slots {
+.slots {
+	display: inline;
 	padding: 20px;
-	background-color: white;
-} */
+}
 
 .slot {
-	background-color: red;
 	width: 100px;
 	height: 100px;
+	background-color: red;
+	-webkit-transform: rotate(90deg);
 }

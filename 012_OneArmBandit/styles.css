@@ -1,41 +1,42 @@
 body {
 	font-family: "Courier New", Courier, monospace;
+	color: white;
+	background-color: rgb(172, 255, 47);
 }
 
-#test1 {
-	width: 200px;
-	height: 100px;
-	background-color: black;
-}
 .container {
 	padding: 100px;
 }
 
-.machine {
-	background-color: black;
-	width: 300px;
-	height: 600px;
-	padding: 10px;
+.background {
+	background-color: greenyellow;
+	padding: 50px 100px;
 }
 
-.header {
-	padding: 20px;
+.faces {
+	margin-left: 150px;
+	align-content: center;
+}
+
+#heading {
+	font-size: 40px;
 	text-align: center;
 }
 
-.headerbg {
-	padding: 10px;
+.face {
+	width: 150px;
+	height: 150px;
+	margin: 20px;
+	padding: 20px;
 	background-color: white;
 }
 
-.slots {
-	display: inline;
-	padding: 20px;
-}
-
-.slot {
-	width: 100px;
-	height: 100px;
-	background-color: red;
-	-webkit-transform: rotate(90deg);
+#rollBtn {
+	background-color: white;
+	border: none;
+	color: green;
+	padding: 15px 32px;
+	display: inline-flex;
+	font-size: 16px;
+	margin-left: 460px;
 }
